@@ -14,24 +14,35 @@ from transformers import AutoTokenizer
 import argparse
 
 # Download resource NLTK yang diperlukan
+# try:
+#     nltk.data.find('tokenizers/punkt')
+# except LookupError:
+#     nltk.download('punkt')
+
+# try:
+#     nltk.data.find('corpora/stopwords')  
+# except LookupError:
+#     nltk.download('stopwords')
+
+# try:
+#     nltk.data.find('tokenizers/punkt_tab')
+# except LookupError:
+#     nltk.download('punkt_tab')
+
+# try:
+#     nltk.data.find('corpora/wordnet')
+# except LookupError:
+#     nltk.download('wordnet')
+
 try:
     nltk.data.find('tokenizers/punkt')
-except LookupError:
-    nltk.download('punkt')
-
-try:
-    nltk.data.find('corpora/stopwords')  
-except LookupError:
-    nltk.download('stopwords')
-
-try:
     nltk.data.find('tokenizers/punkt_tab')
-except LookupError:
-    nltk.download('punkt_tab')
-
-try:
+    nltk.data.find('corpora/stopwords')
     nltk.data.find('corpora/wordnet')
 except LookupError:
+    nltk.download('punkt')
+    nltk.download('punkt_tab')
+    nltk.download('stopwords')
     nltk.download('wordnet')
 
 INDONESIAN_STOPWORDS = set(stopwords.words('indonesian'))
